@@ -1,9 +1,7 @@
 "use string";
 
-// dependencies
+// Dependencies
 var MyClass = require("./myclass.js");
-
-var _private = { value: '1'};
 
 // SubClass module
 var Class = function (context) {
@@ -19,8 +17,6 @@ Class.prototype.constructor = Class;                // point to constructor
 
 Class.prototype.init = function () {                // public method
 	MyClass.prototype.init.call(this);
-
-	return _private;
 }
 
 module.exports = Class;

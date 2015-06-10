@@ -16,14 +16,6 @@ var textSubClass = instanceSubClass.createGreating();
 view.createGreating(textMyClass);
 view.createGreating(textSubClass);
 
-// Layer 1: Single Object
-// Layer 2: Prototype chain
-// Layer 3: Constructor
-// Layer 4: Constructor inheritance
-
-/* OOP Principles
-
-*/
 
 /* SOLID Principles
 
@@ -38,8 +30,7 @@ view.createGreating(textSubClass);
 
 * Interface segregation
 	many client-specific interfaces are better than one general-purpose interface
-	
+
 * Dependency inversion
 	Depend upon Abstractions. Do not depend upon concretions
 */
-
