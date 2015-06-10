@@ -1,0 +1,17 @@
+{
+  "name": "oop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Matteo Gilardoni",
+  "license": "ISC",
+  "dependencies": {
+    "css-loader": "^0.14.4",
+    "node-libs-browser": "^0.5.2",
+    "style-loader": "^0.12.3",
+    "webpack": "^1.9.10"
+  }
+}
