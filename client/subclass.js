@@ -1,14 +1,16 @@
 "use string";
 
-// SubClass module
 // dependencies
 var MyClass = require("./myclass.js");
 
-// Class
 var _private = { value: '1'};
 
+// SubClass module
 var Class = function (context) {
-	MyClass.call(this, context);                    // call super constructor.
+	MyClass.call(this, context);                    // call super constructor
+
+	this.nameClass = 'SubClass';
+
 	this.firstname = 'Matteo';                      // public property
 }
 

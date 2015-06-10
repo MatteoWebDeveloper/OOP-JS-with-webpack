@@ -1,23 +1,20 @@
 "use string";
 
-// instanciate App
 // dependencies
-var MyClass = require("./myclass.js");
-var SubClass = require("./subclass.js");
+var MyClass = require('./myclass.js');
+var SubClass = require('./subclass.js');
+var ViewClass = require('./viewClass.js');
 
 // initialise app
-var instance = new SubClass('context');
+var instanceMyClass = new MyClass();
+var instanceSubClass = new SubClass();
+var view = new ViewClass();
 
-var privateObject = instance.init();
+var textMyClass = instanceMyClass.createGreating();
+var textSubClass = instanceSubClass.createGreating();
 
-document.write('Hi', instance.firstname, instance.lastname, privateObject.value);
-
-
-var instanceTwo = new SubClass('contextTwo');
-var infoTwo = instance.init();
-
-document.write('Hi', instance.firstname, instance.lastname, privateObject.value);
-
+view.createGreating(textMyClass);
+view.createGreating(textSubClass);
 
 // Layer 1: Single Object
 // Layer 2: Prototype chain
@@ -45,3 +42,4 @@ document.write('Hi', instance.firstname, instance.lastname, privateObject.value)
 * Dependency inversion
 	Depend upon Abstractions. Do not depend upon concretions
 */
+

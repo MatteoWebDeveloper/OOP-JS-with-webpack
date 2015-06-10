@@ -1,3 +1,5 @@
+var webpack = require("webpack");
+
 module.exports = {
     entry: "./client/app.js",
     output: {
@@ -5,9 +7,14 @@ module.exports = {
         filename: "bundle.js"
     },
     module: {
-        loaders: [
-            { test: /\.css$/, loader: "style!css" }
-        ]
-    }
+        loaders: [{
+            test: /\.less$/,
+            loader: "style!css!less"
+        }]
+    },
+    devtool: "source-map"
+    // ,
+    // plugins: [
+    //     new webpack.optimize.UglifyJsPlugin({minimize: true})
+    // ]
 };
-
