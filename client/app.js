@@ -8,6 +8,7 @@ var ViewClass = require('./viewClass.js');
 // initialise app
 var instanceMyClass = new MyClass();
 var instanceSubClass = new SubClass();
+
 var view = new ViewClass();
 
 var textMyClass = instanceMyClass.createGreating();

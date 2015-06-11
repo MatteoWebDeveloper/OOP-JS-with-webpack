@@ -54,6 +54,7 @@
 	// initialise app
 	var instanceMyClass = new MyClass();
 	var instanceSubClass = new SubClass();
+	
 	var view = new ViewClass();
 	
 	var textMyClass = instanceMyClass.createGreating();
@@ -90,13 +91,14 @@
 	
 	// MyClass Module
 	var Class = function (context) {
-		this.nameClass = 'MyClass';
-	
+		this.nameClass = 'MyClass';               // public property
 		this.firstname = 'Paolo';
 		this.lastname = 'Gandola';
 	}
 	
-	Class.prototype.init = function () {}
+	Class.prototype.init = function () {
+		this.initVlaue = 'add';
+	}
 	
 	Class.prototype.createGreating = function () { // public method
 		return 'Hi I am a ' + this.nameClass + ' ' + this.firstname + ' ' + this.lastname;
@@ -111,27 +113,23 @@
 
 	"use string";
 	
-	// dependencies
+	// Dependencies
 	var MyClass = __webpack_require__(1);
-	
-	var _private = { value: '1'};
 	
 	// SubClass module
 	var Class = function (context) {
+	
 		MyClass.call(this, context);                    // call super constructor
 	
-		this.nameClass = 'SubClass';
-	
-		this.firstname = 'Matteo';                      // public property
+		this.nameClass = 'SubClass';                    // public property overwritten
+		this.firstname = 'Matteo';
 	}
 	
 	Class.prototype = Object.create(MyClass.prototype); // inheritance
 	Class.prototype.constructor = Class;                // point to constructor
 	
 	Class.prototype.init = function () {                // public method
-		MyClass.prototype.init.call(this);
-	
-		return _private;
+		MyClass.prototype.init.call(this);              // overwritten partially
 	}
 	
 	module.exports = Class;
