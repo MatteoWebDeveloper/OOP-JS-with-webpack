@@ -8,7 +8,7 @@ var Class = function (context) {
 }
 
 Class.prototype.init = function () {
-	this.initVlaue = 'add';
+	return this.nameClass;
 }
 
 Class.prototype.createGreating = function () { // public method
