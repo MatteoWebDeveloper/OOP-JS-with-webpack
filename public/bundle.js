@@ -63,8 +63,7 @@
 	view.createGreating(textMyClass);
 	view.createGreating(textSubClass);
 	
-	
-	/* SOLID Principles
+	/* SOLID Principles:
 	
 	* Single responsibility
 		a class should have only a single responsibility (i.e. only one potential change in the software's specification should be able to affect the specification of the class)
@@ -91,17 +90,21 @@
 	
 	// MyClass Module
 	var Class = function (context) {
-		this.nameClass = 'MyClass';               // public property
+		this.nameClass = 'MyClass';                  // public property
 		this.firstname = 'Paolo';
 		this.lastname = 'Gandola';
 	}
 	
-	Class.prototype.init = function () {
-		this.initVlaue = 'add';
+	Class.prototype.sayHello = function () {         // public method
+		return ['Hi I am', this.nameClass, this.firstname, this.lastname].join(' ');
 	}
 	
-	Class.prototype.createGreating = function () { // public method
-		return 'Hi I am a ' + this.nameClass + ' ' + this.firstname + ' ' + this.lastname;
+	Class.prototype.saySpecialThank = function () {  // public method
+		return 'Thank you';
+	}
+	
+	Class.prototype.sayBye = function () {           // public method
+		return 'See you later';
 	}
 	
 	module.exports = Class;
@@ -118,8 +121,7 @@
 	
 	// SubClass module
 	var Class = function (context) {
-	
-		MyClass.call(this, context);                    // call super constructor
+		var _super = MyClass.call(this, context);       // call super constructor
 	
 		this.nameClass = 'SubClass';                    // public property overwritten
 		this.firstname = 'Matteo';
@@ -128,8 +130,22 @@
 	Class.prototype = Object.create(MyClass.prototype); // inheritance
 	Class.prototype.constructor = Class;                // point to constructor
 	
-	Class.prototype.init = function () {                // public method
-		MyClass.prototype.init.call(this);              // overwritten partially
+	// Class.prototype.sayHello = function () {         // inherit public method
+	// 	return ['Hi I am', this.nameClass, this.firstname, this.lastname].join(' ');
+	// }
+	
+	Class.prototype.saySpecialThank = function () {     // shadow public method
+		var _super = MyClass.prototype.saySpecialThank.call(this); // call super method
+		return [_super, 'is partialy overwritten by', this.nameClass].join(' ');
+	}
+	
+	Class.prototype.sayBye = function () {              // overwrite public method
+		return 'See you tomorrow';
+	}
+	
+	
+	Class.prototype.sayWhoYouAre = function () {        // new public method
+		return ['I am', this.firstname].join(' ');
 	}
 	
 	module.exports = Class;
