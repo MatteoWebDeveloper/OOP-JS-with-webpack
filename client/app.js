@@ -11,8 +11,8 @@ var instanceSubClass = new SubClass();
 
 var view = new ViewClass();
 
-var textMyClass = instanceMyClass.createGreating();
-var textSubClass = instanceSubClass.createGreating();
+var textMyClass = instanceMyClass.sayHello();
+var textSubClass = instanceSubClass.sayHello();
 
 view.createGreating(textMyClass);
 view.createGreating(textSubClass);
