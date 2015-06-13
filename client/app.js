@@ -1,4 +1,4 @@
-"use string";
+"use strict";
 
 // dependencies
 var MyClass = require('./myclass.js');

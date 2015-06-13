@@ -1,4 +1,4 @@
-"use string";
+"use strict";
 
 // dependencies
 require("./styles.less");

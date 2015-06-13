@@ -1,4 +1,4 @@
-"use string";
+"use strict";
 
 // MyClass Module
 var Class = function (context) {
